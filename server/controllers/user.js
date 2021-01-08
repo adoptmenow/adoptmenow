@@ -1,6 +1,7 @@
 const { User } = require('../models/index')
 const { comparePassword } = require('../helper/bcrypt')
 const { generateToken } = require('../helper/jwt')
+const DEFAULT_GOOGLE_PASSWORD = "1Ff-GBlVO_TuLJzGZYjlWIJT"
 
 class UserController {
     static register (req, res, next) {
@@ -68,58 +69,40 @@ class UserController {
             return next(error)
         }
     }
-    // static loginGoogle(req, res, next) {
-    //     const { id_token } = req.body
-    //     let email = null
 
-    //     const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
-    //     client.verifyIdToken({
-    //         idToken: id_token,
-    //         audience: process.env.GOOGLE_CLIENT_ID
-    //     })
-    //         .then(ticket => {
-    //             const payload = ticket.getPayload()
-    //             console.log(payload);
-    //             email = payload.email
+    static async googleLogin(req, res, next) {
+        const google_token = req.headers.google_token
 
-    //             return User.findOne({
-    //                 where: { email }
-    //             })
-    //         })
-    //         .then(user => {
-    //             if (!user) {
-    //                 return User.create({
-    //                     email,
-    //                     nama: 'customer',
-    //                     role: 'customer',
-    //                     password: Math.random() * 100 + 'password random google'
-    //                 })
-    //             } else {
-    //                 return user
-    //             }
-    //         })
-    //         .then(user => {
-    //             const payload = {
-    //                 id: user.id,
-    //                 email: user.email
-    //             }
-    //             const access_token = generateToken(payload)
+        try {
+            const payload = await verifyGoogle(google_token)
+            const email = payload.email
+            const user = await User.findOne({
+                where: {
+                    email
+                }
+            })
+            const password = DEFAULT_GOOGLE_PASSWORD
+            if(user) {
+                let check = comparePassword(password, user.password)
+                if(check) {
+                    const token = verifyToken({id: user.id, email: user.email, }, SECRET)
+                    res.status(200).json({user, token})
+                } else {
 
-    //             res.status(200).json({
-    //                 id: user.id,
-    //                 name: user.nama,
-    //                 email: user.email,
-    //                 role: user.role,
-    //                 access_token: access_token
-    //             })
-    //         })
-    //         .catch(err => {
-    //             next(err)
-    //         })
-    //     // const userid = payload['sub'];
-    //     // If request specified a G Suite domain:
-    //     // const domain = payload['hd'];
-    // }
+                }
+            } else {
+                const newUser = await User.create({
+                    email,
+                    password
+                })
+                const token = generateToken({id: newUser.id, email: newUser.email, }, SECRET)
+                res.status(200).json({token})
+
+            }
+        } catch(err) {
+            next(err)
+        }
+    }
 }
 
 module.exports = UserController
