@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300;400;500;700&display=swap");
+
+:root {
+  --small-font: "Quicksand", sans-serif;
+  --big-font: "Bebas Neue", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: var(--small-font);
+}
+
+h2 {
+  font-family: var(--big-font);
+}
+#navbar {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: var(--small-font);
+  font-weight: bold;
+}
+#navbar ul li {
+  display: inline-block;
+  margin: 0 20px;
+  padding-top: 10px;
+}
+#navbar a {
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+#navbar img {
+  width: 20px;
+}
+.logo {
+  font-weight: bold;
+  color: rgb(5, 93, 116);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+nav {
+  background-color: rgba(255, 255, 255, 0.76);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  margin: 5px 20px;
+}
+nav a:hover {
+  color: rgb(111, 116, 116);
+  text-decoration: none;
+}
+nav a {
+  text-decoration: none;
+  color: rgb(255, 174, 0);
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: aqua;
+  color: rgb(70, 69, 69);
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.footer p {
+  font-family: var(--small-font);
+}
+
+/* ================== FORMS ====================== */
+.form {
+  color: white;
+  font-weight: bold;
+  margin-top: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 30px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  width: 600px;
+  padding: 10px;
+  max-width: 100%;
+  min-height: 500px;
+}
+.form h2 {
+  color: rgb(87, 87, 87);
+}
+
+.container #sign-up,
+#add-pet-page {
+  background: url("https://images.unsplash.com/photo-1537151769678-eb003fb3a153?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=633&q=80");
+}
+
+.btn {
+  color: white;
+  background-color: rgb(39, 39, 39);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 20px;
+  text-transform: uppercase;
+  width: 90%;
+  margin-left: 5%;
+  cursor: pointer;
+}
+input {
+  background-color: white;
+  border: none;
+  padding: 20px;
+  margin: 8px 0;
+  width: 100%;
+}
+input[type="submit"]:hover {
+  background-color: rgb(53, 52, 52);
+}
+/* ================ PET CARD ==================== */
+.pet-page {
+  padding: 5%;
+}
+.pet-card {
+  margin: 20px;
+  min-width: 300px;
+  background-color: rgb(147, 255, 244);
+  border-radius: 0 50px 50px 0;
+  color: rgb(29, 29, 29);
+  font-weight: 500;
+  padding: 10px;
+}
+.pets p {
+  line-height: 0.2;
+}
+.pets p,
+input {
+  padding: 10px;
+}
+.pet-card .pet-name {
+  color: rgb(5, 28, 63);
+  font-family: var(--big-font);
+  font-size: 2em;
+}
+
+.pet-card img {
+  border-radius: 0 50px 0 50px;
+}
+.pet-card #edit-pet-btn {
+  background-color: rgb(255, 181, 21);
+  color: rgb(19, 19, 19);
+}
+input[type="submit"]#edit-pet-btn:hover {
+  background-color: rgb(255, 208, 0);
+}
+
+.pet-card #delete-pet-btn {
+  background-color: rgb(255, 6, 27);
+}
+input[type="submit"]#delete-pet-btn:hover {
+  background-color: rgb(177, 24, 4);
+}
+
+/* ================  THANK YOU CARD ===================== */
+.thank-you-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 300px;
+  width: 600px;
+  min-height: 300px;
+  margin: 50px auto;
+  background: url("https://image.freepik.com/free-photo/african-american-woman-wearing-pink-sweater-holding-puppy_273609-22790.jpg");
+  border-radius: 30px;
+}
+.thank-you-card p {
+  font-family: var(--big-font);
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.thank-you-card .btn {
+  width: 50%;
+}
