@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>adoptmenow</title>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"> 
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<main>
+
+<!-- NAVBAR -->
+
+<div id="navbar">
+  <nav class="navbar navbar-light">
+  
+  <ul class="nav-list">
+    <li class="logo">
+      <img src="https://www.flaticon.com/svg/static/icons/svg/1946/1946433.svg" alt="cat paws logo">
+      Adopt Me Now
+    </li>
+    <li><a id="sign-up" href="#sign-up">Sign Up</a></li>
+    <li><a id="sign-in" href="#sign-in">Sign In</a></li>
+    <li><a id="sign-out" href="#sign-out">Sign Out</a></li>
+  </ul>
+</nav>
+</div>
+
+<!-- SIGN UP USER -->
+<div class="container sign-up-form">
+  <div class="form" id="sign-up">
+    <form action="/register" method="POST">
+      
+      <h2>Sign Up</h2>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="cat123">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label><br>
+        <input type="email" name="email" id="email" placeholder="youremail@example.com">
+      </div>
+      <div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" placeholder="xxxxxxxx">
+      </div>
+        <input class="register-page btn" id="register-btn" type="submit" value="Sign Up">
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- SIGN IN PAGE -->
+<div class="container sign-in-form">
+ 
+  <div class="form" id="sign-in">
+    <form action="/login" method="POST">
+      <h2>Welcome back!</h2>
+      <div class="input form-group">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="username" placeholder="your@mail.com">
+      </div>
+      <div class="input form-group">
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" placeholder="xxxxxxxx">
+      </div>
+      <div class="input form-group">
+        <input id="sign-in-btn" class="sign-in-page btn" type="submit" value="Sign In">
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- ADD PET -->
+<div class="container add-pet-form">
+  
+  <div class="form" id="add-pet-page">
+    <form action="/pet/insert" method="POST">
+      
+      <h2>Add a pet</h2>
+      <div class="form-group">
+        <label for="name">Name </label><br>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label><br>
+        <input type="number" name="age" id="age">
+      </div>
+      <div class="form-group">
+        <label for="type">Type</label><br>
+        <input type="type" name="type" id="type">
+      </div>
+      <div class="form-group">
+        <label for="status">Status </label><br>
+        <input type="text" name="status" id="status">
+      </div>
+      <div class="form-group">
+        <label for="description">Description </label><br>
+        <input type="text" name="description" id="description">
+      </div>
+      <div class="form-group">
+        <label for="image">Image Url </label><br>
+        <input type="text" name="imageUrl" id="imageUrl">
+      </div>
+      <div class="form-group">
+        <label for="status">Status </label><br>
+        <input type="text" name="status" id="status">
+      </div>
+      <div class="form-group">
+        <input class="add-pet-btn btn" id="add-pet" type="submit" value="Add pet">
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- EDIT PET -->
+<div class="container edit-pet-form">
+  
+  <div class="form" id="edit-pet-page">
+    <form action="/pet/insert" method="POST">
+      <h2>Edit Pet</h2>
+      <div class="form-group">
+        <label for="name">Name </label><br>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label><br>
+        <input type="number" name="age" id="age">
+      </div>
+      <div class="form-group">
+        <label for="type">Type</label><br>
+        <input type="type" name="type" id="type">
+      </div>
+      <div class="form-group">
+        <label for="status">Status </label><br>
+        <input type="text" name="status" id="status">
+      </div>
+      <div class="form-group">
+        <label for="description">Description </label><br>
+        <input type="text" name="description" id="description">
+      </div>
+      <div class="form-group">
+        <label for="image">Image Url </label><br>
+        <input type="text" name="imageUrl" id="imageUrl">
+      </div>
+      <div class="form-group">
+        <label for="status">Status </label><br>
+        <input type="text" name="status" id="status">
+      </div>
+      <div class="form-group">
+        <input class="add-pet-btn btn" id="add-pet" type="submit" value="Add pet">
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- CARD -->
+<div class="container pet-page">
+  <div class="pets pet-card">
+    <img id="pet-img" src="https://images.unsplash.com/photo-1580383857470-d5eff2e6b845?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="image" width="300" height="300">
+    <p class="pet-name">Meng</p>
+    <p class="pet-sex">Female</p>
+    <p class="description">Healthy. Loves to cuddle.</p>
+    <div class="form-group">
+      <input class="btn" id="adopt-btn" type="submit" value="Apply for Adoption">
+    </div>
+    <div class="form-group">
+      <input class="btn" id="edit-pet-btn" type="submit" value="Edit Pet Info">
+    </div>
+    <div class="form-group">
+      <input class="btn" id="delete-pet-btn" type="submit" value="Delete Pet">
+    </div>
+  </div>
+</div>
+
+
+<!-- ADOPT REQUEST DONE CARD -->
+<div class="container done-adopt">
+  <div class="thank-you-card">
+    <p class="thank-you-note">Thank you for adopting! <br> Your request will be reviewed shortly.</p>
+    <input class="btn" id="back" type="submit" value="Back to main">
+  </div>
+  
+</div>
+
+</main>
+
+<footer>
+  <div class="footer">
+  <p>© Copyright 2021 Hacktiv8 Group Project - Group 8</p>
+</div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</body>
+</html>
